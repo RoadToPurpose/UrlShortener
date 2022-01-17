@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UrlShortener.Models
+namespace UrlShortener.Data.Models
 {
-    public class UrlMapping
+    public class UrlModel
     {
         
         // Key for shortened url, uses first 8 characters of GUID.
         [Key]
-        public string ShortenedUrlKey
+        public string Key
         {
             get;
             set;
