@@ -29,12 +29,15 @@ namespace UrlShortener.Controllers
         {
             UrlModel urlModel = await _context.Urls.FirstOrDefaultAsync(x => x.Key == key);
             if (urlModel == null)
+            {
                 return NotFound();
-            return new ObjectResult(urlModel.OriginalUrl);
+            }
+            
+            return Redirect(urlModel.OriginalUrl);
         }
         
         [HttpPost]
-        public async Task<ActionResult<UrlModel>> Post(string url)
+        public async Task<IActionResult> Post(string url)
         {
             if (!Uri.IsWellFormedUriString(url,UriKind.Absolute))
             {
