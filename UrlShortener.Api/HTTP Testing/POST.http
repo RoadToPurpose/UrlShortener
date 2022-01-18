@@ -1,0 +1,4 @@
+﻿POST https://localhost:5001/?url=https://www.google.ru/
+Accept: application/json
+
+###
