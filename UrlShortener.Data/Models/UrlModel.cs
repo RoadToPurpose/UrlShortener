@@ -2,22 +2,20 @@
 
 namespace UrlShortener.Data.Models
 {
+    /// <summary>
+    ///     A class that represents a model of records in a database.
+    /// </summary>
     public class UrlModel
     {
-        
-        // Key for shortened url, uses first 8 characters of GUID.
+        /// <summary>
+        ///     Key for shorted link.
+        /// </summary>
         [Key]
-        public string Key
-        {
-            get;
-            set;
-        }
-        
-        // Original URL. 
-        public string OriginalUrl
-        {
-            get;
-            set;
-        }
+        public string Key { get; set; }
+
+        /// <summary>
+        ///     Original link string.
+        /// </summary>
+        public string OriginalUrl { get; set; }
     }
 }

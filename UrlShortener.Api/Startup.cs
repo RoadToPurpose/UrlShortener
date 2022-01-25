@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -14,19 +13,19 @@ namespace UrlShortener
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-        
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<UrlContext>(options => options.UseSqlite(Configuration["DbConnectionString"]));
-            services.AddTransient<IUrlService, UrlService>();
+            services.AddScoped<IUrlService, UrlService>();
             services.AddControllers();
         }
-        
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -34,14 +33,14 @@ namespace UrlShortener
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             
+            app.UseHttpsRedirection();
+
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
