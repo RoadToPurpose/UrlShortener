@@ -1,4 +1,9 @@
-﻿POST https://localhost:5001/?url=1
+﻿POST https://localhost:5001/api
 Accept: application/json
+Content-Type: text/json
+
+{
+"Url" : "1"
+}
 
 ###

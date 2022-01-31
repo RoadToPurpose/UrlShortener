@@ -1,8 +1,9 @@
-﻿POST https://localhost:5001
+﻿POST https://localhost:5001/api
 Accept: application/json
+Content-Type: text/json
 
 {
-"url" : "https://www.google.ru/"
+"Url" : "https://www.google.ru/"
 }
 
 ###

@@ -14,11 +14,14 @@
     </ItemGroup>
 
     <ItemGroup>
-      <TypeScriptCompile Include="wwwroot\ts\script.ts" />
+      <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.13" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.13" />
+      <_ContentIncludedByDefault Remove="wwwroot\ts\script.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\ts\script.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\ts\script.ts" />
+      <_ContentIncludedByDefault Remove="wwwroot\ts\tsconfig.json" />
     </ItemGroup>
 
 </Project>

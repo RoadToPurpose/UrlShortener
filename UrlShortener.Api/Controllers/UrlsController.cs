@@ -61,14 +61,14 @@ namespace UrlShortener.Controllers
         ///     Returns the Ok HTTP request with created UrlModel or BadRequest if the passed string is not a link.
         /// </returns>
         [HttpPost]
-        public async Task<IActionResult> Post(string url)
+        public async Task<IActionResult> Post(UrlDto urlDto)
         {
-            if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
+            if (!Uri.IsWellFormedUriString(urlDto.Url, UriKind.Absolute))
             {
                 return BadRequest();
             }
 
-            return Ok(await _urlService.Reduce(new Uri(url)));
+            return Ok(await _urlService.Reduce(new Uri(urlDto.Url)));
         }
     }
 }

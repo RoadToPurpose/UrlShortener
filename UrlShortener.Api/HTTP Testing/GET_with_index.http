@@ -1,4 +1,4 @@
-﻿GET https://localhost:5001/d480c3b
+﻿GET https://localhost:5001/api/d480c3b
 Accept: application/json
 
 ###

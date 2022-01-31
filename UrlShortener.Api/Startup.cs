@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using UrlShortener.Data.Contexts;
 using UrlShortener.Services.Interfaces;
 using UrlShortener.Services.Services;
@@ -22,7 +23,7 @@ namespace UrlShortener
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<UrlContext>(options => options.UseSqlite(Configuration["DbConnectionString"]));
-            services.AddScoped<IUrlService, UrlService>();
+            services.AddTransient<IUrlService, UrlService>();
             services.AddControllers();
         }
 
@@ -35,7 +36,7 @@ namespace UrlShortener
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
